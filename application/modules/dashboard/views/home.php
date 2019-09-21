@@ -3,7 +3,6 @@
 <div class="page-content">
 
 <style>
-
 img {
 
   display: block;
@@ -22,40 +21,6 @@ img {
 
 </style>
 
-<!-- BEGIN PAGE HEADER-->
-
-<!-- <div class="row">
-
-    <div class="col-md-12"  style="position:relative;">
-
-        
-
-       
-
-        <ul class="page-breadcrumb breadcrumb">
-
-        
-
-            <li>
-
-                <a href="<?php echo ADMIN_BASE_URL?>dashboard"><i class="fa fa-home"></i></a>
-
-                <a href="<?php echo ADMIN_BASE_URL?>dashboard">Dashboard</a>
-
-            </li>
-
-        </ul>
-
-
-
-      
-
-    </div>
-
-</div> -->
-
-
-
 <div class="row" style="padding-bottom: 30px;padding-top: 30px;">
 
     <div class="col-md-12">
@@ -66,13 +31,13 @@ img {
 
                     <div class="col-md-4">
 
-                        <img src="<?php echo BASE_URL.'plugin/img/org.png'?>">
+                        <img src="<?php echo STATIC_ADMIN_IMAGE.'company.png'?>">
 
                     </div>
 
                     <div class="col-md-8" style="padding-top: 10px;">
 
-                        <!-- <h2 class="card-text"><?php echo $organization; ?></h2> -->
+                         <h2 class="card-text"><?php echo $organization; ?></h2> 
 
                     </div>
 
@@ -90,11 +55,11 @@ img {
 
         <div class="card text-white bg-primary col-md-10 shadow">
 
-                <div class="card-body ">
+                <div class="card-body" style="padding-top: 15px;">
 
-                    <img src="<?php echo BASE_URL.'plugin/img/teacher.png'?>">
+                    <img src="<?php echo STATIC_ADMIN_IMAGE.'salesman.png'?>">
 
-                    <!-- <h2 class="card-text"><center>Total Teachers:<br><?php echo $teacher; ?></center></h2> -->
+                    <h2 class="card-text"><center>Total Salesman:<br><?php echo $salesman; ?></center></h2>
 
                 </div>
 
@@ -106,11 +71,11 @@ img {
 
         <div class="card text-white bg-primary col-md-10 shadow">
 
-                <div class="card-body">
+                <div class="card-body" style="padding-top: 15px;">
 
-                    <img src="<?php echo BASE_URL.'plugin/img/parent.png'?>">
+                    <img src="<?php echo STATIC_ADMIN_IMAGE.'cashier.png'?>">
 
-                    <!-- <h2 class="card-text"><center>Total Parents:<br><?php echo $parent; ?></center></h2> -->
+                    <h2 class="card-text"><center>Total Cashier:<br><?php echo $cashier; ?></center></h2>
 
                 </div>
 
@@ -122,11 +87,11 @@ img {
 
         <div class="card text-white bg-primary col-md-10 shadow">
 
-                <div class="card-body">
+                <div class="card-body" style="padding-top: 15px;">
 
-                    <img src="<?php echo BASE_URL.'plugin/img/stdnew.png'?>">
+                    <img src="<?php echo STATIC_ADMIN_IMAGE.'customer.png'?>">
 
-                    <!-- <h2 class="card-text"><center>Total Students:<br><?php echo $student; ?></center></h2> -->
+                    <h2 class="card-text"><center>Total Customer:<br><?php echo $customer; ?></center></h2>
 
                 </div>
 
@@ -135,50 +100,8 @@ img {
     </div>
 
 </div>
-
-<div class="row" style="padding-top: 20px;">
-
-    <div class="col-md-12" onclick="location.href='announcement';">
-
-        <div class="card text-white  shadow" style="background-color: rgb(77, 182, 172)">
-
-                <div class="card-body">
-
-                   <!--  <?php if(isset($announcement) && !empty($announcement)){
-
-                        ?>
-
-                    
-
-                    <h4 class="card-text"><marquee><br><?php echo $announcement[0]['title']; ?></marquee></h5>
-
-                    <h5 class="card-text"><marquee><?php echo $announcement[0]['description']; ?><br><br></marquee></h5>
-
-                <?php }?>
- -->
-                </div>
-
-        </div>
-
-    </div>
-
 </div>
-
-
-
-<!-- END PAGE HEADER-->
-
 </div>
-
 </div>
-
 </div>
-
 </div>
-
-</div>
-
-
-
-
-

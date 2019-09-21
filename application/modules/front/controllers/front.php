@@ -61,6 +61,12 @@ class Front extends MX_Controller {
 					$finalData['shop'] = $value['shop'];
 					$finalData['amount'] = $value['amount'];
 					$finalData['user_id'] = $value['user_id'];
+					if (isset($value['image']) && !empty($value['image'])) {
+						$finalData['image'] = IMAGE_BASE_URL.'customer/medium_images/'.$value['image'];	
+					}
+					else{
+						$finalData['image'] = IMAGE_BASE_URL.'customer/medium_images/customer.png';
+					}
 					if($value['amount'] < 0){
 						$finalData['cash'] = 'Debit';
 					}
@@ -194,6 +200,34 @@ class Front extends MX_Controller {
 		}
 	}
 
+	function get_expense(){
+		$api = $this->input->post('api');
+		$status = false;
+		if ($api == 'true') {
+			$user_id = $this->input->post('user_id');
+			$org_id = $this->input->post('org_id');
+
+			$where['user_id'] = $user_id;
+
+			$expense = $this->_get_expense($where,$org_id)->result_array();
+			if (isset($expense) && !empty($expense) ) {
+				$message = 'Record Found Successfully';
+				$data = $expense;
+				$status = true; 
+			}
+			else{
+				$message = 'Record Not Found';
+				$data = '';
+			}
+			header('Content-Type: application/json');
+            echo json_encode(array('status'=>$status, 'message' => $message, 'data' => $data));
+		}
+		else{
+			header('Content-Type: application/json');
+            echo json_encode(array('status'=>$status, 'message' => "Unable to Connect"));
+		}
+	}
+
 	function get_invoice(){
 		$api = $this->input->post('api');
 		$status = false;
@@ -261,6 +295,11 @@ class Front extends MX_Controller {
 	function _insert_expense($data){
 		$this->load->model('mdl_front');
 		return $this->mdl_front->_insert_expense($data);
+	}
+
+	function _get_expense($where,$org_id){
+		$this->load->model('mdl_front');
+		return $this->mdl_front->_get_expense($where,$org_id);
 	}
 
 	function _get_invoice($where,$where1,$org_id){

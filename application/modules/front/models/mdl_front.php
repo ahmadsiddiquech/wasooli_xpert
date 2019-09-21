@@ -21,6 +21,7 @@ class Mdl_front extends CI_Model {
 		$table = 'customer';
 		$this->db->where($where);
 		$this->db->where('org_id',$org_id);
+		$this->db->order_by('customer_id','DESC');
 		return $this->db->get($table);
 	}
 
@@ -44,7 +45,7 @@ class Mdl_front extends CI_Model {
 		$this->db->where($where);
 		$this->db->where($where1);
 		$this->db->where('org_id',$org_id);
-		// $this->db->order_by('id','desc');
+		$this->db->order_by('reciept_id','desc');
 		return $this->db->get($table);
 	}
 
@@ -54,11 +55,20 @@ class Mdl_front extends CI_Model {
 		return $this->db->insert_id();
 	}
 
+	function _get_expense($where,$org_id){
+		$table = 'expense';
+		$this->db->where($where);
+		$this->db->where('org_id',$org_id);
+		$this->db->order_by('expense_id','desc');
+		return $this->db->get($table);
+	}
+
 	function _get_invoice($where,$where1,$org_id){
 		$table = 'invoice';
 		$this->db->where($where);
 		$this->db->where($where1);
 		$this->db->where('org_id',$org_id);
+		$this->db->order_by('invoice_id','desc');
 		return $this->db->get($table);
 	}
 

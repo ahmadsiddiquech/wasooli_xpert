@@ -128,9 +128,9 @@
 
                   <div class="brand-logo">
 
-                     <!-- <h3 style="color: white;margin: 0;padding:10px">HazriXpert</h3> -->
-
-                      <img src="<?php echo STATIC_ADMIN_IMAGE?>logo-full.png" style="width: 85%;" alt="App Logo" class="img-responsive">
+                     <h3 style="color: white;margin: 0;padding:6px">Wasooli Xpert</h3>
+<!-- 
+                      <img src="<?php echo STATIC_ADMIN_IMAGE?>logo-full.png" style="width: 85%;" alt="App Logo" class="img-responsive"> -->
 
                   </div>
 

@@ -1,9 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>HazriXpert</title>
-</head>
-<body>
-<p>Header</p>
-</body>
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <title>Wasooli Xpert</title>
+
+</head>
+
+<body>
+
+<p>Header</p>
+
+</body>
+
 </html>

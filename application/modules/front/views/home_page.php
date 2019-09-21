@@ -4,7 +4,7 @@
 
             <div class="wien">
 
-                <p>HazriXpert Home Page</p>
+                <p>WasooliXpert</p>
 
         </div>
 
