@@ -20,11 +20,11 @@
                    <span>Dashboard</span>
                 </a>
           </li>
-          <li class="<?php if($curr_url == 'cashier'){echo 'active';}    ?>">
-              <a href="<?php $controller='cashier'; 
+          <li class="<?php if($curr_url == 'user'){echo 'active';}    ?>">
+              <a href="<?php $controller='user'; 
               echo ADMIN_BASE_URL . $controller ?>">
              <em class="fa fa-users"></em>
-                <span>Cashier</span>
+                <span>User</span>
              </a>
           </li>
           <li class="<?php if($curr_url == 'customer'){echo 'active';}    ?>">
@@ -34,11 +34,11 @@
                    <span>Customer</span>
                 </a>
           </li>
-          <li class="<?php if($curr_url == 'user_log'){echo 'active';}    ?>">
-                <a href="<?php $controller='user_log'; 
+          <li class="<?php if($curr_url == 'invoice'){echo 'active';}    ?>">
+                <a href="<?php $controller='invoice'; 
                    echo ADMIN_BASE_URL . $controller ?>">
                    <em class="fa fa-calendar"></em>
-                   <span>User Log</span>
+                   <span>Invoice</span>
                 </a>
           </li>
        </ul>

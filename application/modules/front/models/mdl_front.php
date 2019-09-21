@@ -9,23 +9,26 @@ class Mdl_front extends CI_Model {
         parent::__construct();
     }
 
-    function _login($username,$password){
+    function _login($username,$password,$org_id){
 		$table = 'user';
-		$this->db->where('username',$username);
+		$this->db->where('phone',$username);
 		$this->db->where('password',$password);
+		$this->db->where('org_id',$org_id);
 		return $this->db->get($table);
 	}
 
-	function _customer_list($where){
+	function _customer_list($where,$org_id){
 		$table = 'customer';
 		$this->db->where($where);
+		$this->db->where('org_id',$org_id);
 		return $this->db->get($table);
 	}
 
-	function _update_customer_amount($where,$where1,$amount){
+	function _update_customer_amount($where,$where1,$amount,$org_id){
 		$table = 'customer';
 		$this->db->where($where);
 		$this->db->where($where1);
+		$this->db->where('org_id',$org_id);
 		$this->db->set('amount', $amount);
 		$this->db->update($table);
 		return $this->db->affected_rows();
@@ -36,10 +39,12 @@ class Mdl_front extends CI_Model {
 		$this->db->insert($table, $data);
 	}
 
-	function _get_reciept($where,$where1){
+	function _get_reciept($where,$where1,$org_id){
 		$table = 'reciept';
 		$this->db->where($where);
 		$this->db->where($where1);
+		$this->db->where('org_id',$org_id);
+		// $this->db->order_by('id','desc');
 		return $this->db->get($table);
 	}
 
@@ -47,6 +52,14 @@ class Mdl_front extends CI_Model {
 		$table = 'expense';
 		$this->db->insert($table, $data);
 		return $this->db->insert_id();
+	}
+
+	function _get_invoice($where,$where1,$org_id){
+		$table = 'invoice';
+		$this->db->where($where);
+		$this->db->where($where1);
+		$this->db->where('org_id',$org_id);
+		return $this->db->get($table);
 	}
 
 }

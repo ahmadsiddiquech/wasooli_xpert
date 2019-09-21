@@ -78,35 +78,12 @@ else{
 	// define('STATIC_FRONT_IMAGE', 'http://'.$_SERVER['HTTP_HOST'].'/static/front/xpert_atendy/images/');
 }
 
-define('ACTUAL_CATAGORIES_IMAGE_PATH', 'uploads/catagories/actual_images/');
-define('LARGE_CATAGORIES_IMAGE_PATH', 'uploads/catagories/large_images/');
-define('MEDIUM_CATAGORIES_IMAGE_PATH', 'uploads/catagories/medium_images/');
-define('SMALL_CATAGORIES_IMAGE_PATH', 'uploads/catagories/small_images/');
 
-define('ACTUAL_ADDPOST_IMAGE_PATH', 'uploads/add_post/actual_images/');
-define('LARGE_ADDPOST_IMAGE_PATH', 'uploads/add_post/large_images/');
-define('MEDIUM_ADDPOST_IMAGE_PATH', 'http://localhost/wasooli_xpert/uploads/add_post/medium_images/');
-define('SMALL_ADDPOST_IMAGE_PATH', 'uploads/add_post/small_images/');
 
-define('ACTUAL_ITEMS_IMAGE_PATH', 'uploads/items/actual_images/');
-define('LARGE_ITEMS_IMAGE_PATH', 'uploads/items/large_images/');
-define('MEDIUM_ITEMS_IMAGE_PATH', 'uploads/items/medium_images/');
-define('SMALL_ITEMS_IMAGE_PATH', 'uploads/items/small_images/');
-
-define('ACTUAL_ANNOUNCEMENT_IMAGE_PATH', 'uploads/announcement/actual_images/');
-define('LARGE_ANNOUNCEMENT_IMAGE_PATH', 'uploads/announcement/large_images/');
-define('MEDIUM_ANNOUNCEMENT_IMAGE_PATH', 'uploads/announcement/medium_images/');
-define('SMALL_ANNOUNCEMENT_IMAGE_PATH', 'uploads/announcement/small_images/');
-
-define('ACTUAL_BANNER_IMAGE_PATH', 'uploads/banner/actual_images/');
-define('LARGE_BANNER_IMAGE_PATH', 'uploads/banner/large_images/');
-define('MEDIUM_BANNER_IMAGE_PATH', 'uploads/banner/medium_images/');
-define('SMALL_BANNER_IMAGE_PATH', 'uploads/banner/small_images/');
-
-define('ACTUAL_STUDENT_IMAGE_PATH', 'uploads/student/actual_images/');
-define('LARGE_STUDENT_IMAGE_PATH', 'uploads/student/large_images/');
-define('MEDIUM_STUDENT_IMAGE_PATH', 'uploads/student/medium_images/');
-define('SMALL_STUDENT_IMAGE_PATH', 'uploads/student/small_images/');
+define('ACTUAL_CUSTOMER_IMAGE_PATH', 'uploads/customer/actual_images/');
+define('LARGE_CUSTOMER_IMAGE_PATH', 'uploads/customer/large_images/');
+define('MEDIUM_CUSTOMER_IMAGE_PATH', 'uploads/customer/medium_images/');
+define('SMALL_CUSTOMER_IMAGE_PATH', 'uploads/customer/small_images/');
 
 define('DATA_SAVED', 'saved successfully');
 define('DATA_UPDATED', 'updated successfully');

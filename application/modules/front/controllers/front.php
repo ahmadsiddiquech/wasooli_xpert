@@ -21,15 +21,16 @@ class Front extends MX_Controller {
 		if ($api == 'true') {
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
+			$org_id = $this->input->post('org_id');
 
-			$num_rows = $this->_login($username,$password)->num_rows();
+			$num_rows = $this->_login($username,$password,$org_id)->num_rows();
 
 			if($num_rows == 0 || $num_rows > 1){
 				$message = 'Invalid Username or Password';
 				$data = '';
 			}
 			elseif ($num_rows == 1) {
-				$user_data = $this->_login($username,$password)->result_array();
+				$user_data = $this->_login($username,$password,$org_id)->result_array();
 				$message = 'Login Successful';
 				$data = $user_data;
 				$status = true; 
@@ -48,10 +49,11 @@ class Front extends MX_Controller {
 		$status = false;
 		if ($api == 'true') {
 			$user_id = $this->input->post('user_id');
+			$org_id = $this->input->post('org_id');
 
 			$where['user_id'] = $user_id;
 
-			$customer_data = $this->_customer_list($where)->result_array();
+			$customer_data = $this->_customer_list($where,$org_id)->result_array();
 			if (isset($customer_data) && !empty($customer_data)) {
 				foreach ($customer_data as $key => $value) {
 					$finalData['customer_id'] = $value['customer_id'];
@@ -99,6 +101,7 @@ class Front extends MX_Controller {
 			$data2['amount'] = $this->input->post('amount');
 			$data2['amount_paid'] = $this->input->post('amount_paid');
 			$data2['issue_date'] = $this->input->post('issue_date');
+			$data2['org_id'] = $this->input->post('org_id');
 
 			$where['user_id'] = $data2['user_id'];
 			$where1['customer_id'] = $data2['customer_id'];
@@ -113,7 +116,7 @@ class Front extends MX_Controller {
 
 			$data1['amount'] = $data2['amount'];
 
-			$check = $this->_update_customer_amount($where,$where1,$data2['amount']);
+			$check = $this->_update_customer_amount($where,$where1,$data2['amount'],$data2['org_id']);
 			if ($check == 1) {
 				$this->_insert_reciept($data2);
 				$message = 'Record Updated Successfully';
@@ -139,11 +142,12 @@ class Front extends MX_Controller {
 		if ($api == 'true') {
 			$user_id = $this->input->post('user_id');
 			$customer_id = $this->input->post('customer_id');
+			$org_id = $this->input->post('org_id');
 
 			$where['user_id'] = $user_id;
 			$where1['customer_id'] = $customer_id;
 
-			$reciept = $this->_get_reciept($where,$where1)->result_array();
+			$reciept = $this->_get_reciept($where,$where1,$org_id)->result_array();
 			if (isset($reciept) && !empty($reciept) ) {
 				$message = 'Record Found Successfully';
 				$data = $reciept;
@@ -171,6 +175,7 @@ class Front extends MX_Controller {
 			$data['amount'] = $this->input->post('amount');
 			$data['date'] = $this->input->post('date');
 			$data['expense_type'] = $this->input->post('expense_type');
+			$data['org_id'] = $this->input->post('org_id');
 
 			$check = $this->_insert_expense($data);
 			if (isset($check) && !empty($check)) {
@@ -189,7 +194,35 @@ class Front extends MX_Controller {
 		}
 	}
 
+	function get_invoice(){
+		$api = $this->input->post('api');
+		$status = false;
+		if ($api == 'true') {
+			$user_id = $this->input->post('user_id');
+			$customer_id = $this->input->post('customer_id');
+			$org_id = $this->input->post('org_id');
 
+			$where['user_id'] = $user_id;
+			$where1['customer_id'] = $customer_id;
+
+			$invoice = $this->_get_invoice($where,$where1,$org_id)->result_array();
+			if (isset($invoice) && !empty($invoice) ) {
+				$message = 'Record Found Successfully';
+				$data = $invoice;
+				$status = true; 
+			}
+			else{
+				$message = 'Record Not Found';
+				$data = '';
+			}
+			header('Content-Type: application/json');
+            echo json_encode(array('status'=>$status, 'message' => $message, 'data' => $data));
+		}
+		else{
+			header('Content-Type: application/json');
+            echo json_encode(array('status'=>$status, 'message' => "Unable to Connect"));
+		}
+	}
 
 
 
@@ -200,19 +233,19 @@ class Front extends MX_Controller {
 
 
 
-	function _login($username,$password){
+	function _login($username,$password,$org_id){
 		$this->load->model('mdl_front');
-		return $this->mdl_front->_login($username,$password);
+		return $this->mdl_front->_login($username,$password,$org_id);
 	}
 
-	function _customer_list($where){
+	function _customer_list($where,$org_id){
 		$this->load->model('mdl_front');
-		return $this->mdl_front->_customer_list($where);
+		return $this->mdl_front->_customer_list($where,$org_id);
 	}
 
-	function _update_customer_amount($where,$where1,$amount){
+	function _update_customer_amount($where,$where1,$amount,$org_id){
 		$this->load->model('mdl_front');
-		return $this->mdl_front->_update_customer_amount($where,$where1,$amount);
+		return $this->mdl_front->_update_customer_amount($where,$where1,$amount,$org_id);
 	}
 
 	function _insert_reciept($data){
@@ -220,14 +253,19 @@ class Front extends MX_Controller {
 		return $this->mdl_front->_insert_reciept($data);
 	}
 
-	function _get_reciept($where,$where1){
+	function _get_reciept($where,$where1,$org_id){
 		$this->load->model('mdl_front');
-		return $this->mdl_front->_get_reciept($where,$where1);
+		return $this->mdl_front->_get_reciept($where,$where1,$org_id);
 	}
 
 	function _insert_expense($data){
 		$this->load->model('mdl_front');
 		return $this->mdl_front->_insert_expense($data);
+	}
+
+	function _get_invoice($where,$where1,$org_id){
+		$this->load->model('mdl_front');
+		return $this->mdl_front->_get_invoice($where,$where1,$org_id);
 	}
 
 }

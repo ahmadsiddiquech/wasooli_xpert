@@ -52,7 +52,7 @@ $route['customer-list'] = "front/customer_list";
 $route['update-customer-amount'] = "front/update_customer_amount";
 $route['get-reciept'] = "front/get_reciept";
 $route['insert-expense'] = "front/insert_expense";
-
+$route['get-invoice'] = "front/get_invoice";
 
 
 $route['404_override'] = '';

@@ -10,7 +10,7 @@ class Mdl_user extends CI_Model {
     }
 
     function get_table() {
-        $table = "users_add";
+        $table = "user";
         return $table;
     }
 
@@ -28,10 +28,6 @@ class Mdl_user extends CI_Model {
     }
 
     function _get($order_by) {
-        $submit_id = $this->uri->segment(4);
-        // if(isset($_GET['id'])){
-        //     $submit_id = $_GET['id'];
-        // }
         $user_data = $this->session->userdata('user_data');
         $role_id = $user_data['role_id'];
         $org_id = $user_data['user_id'];
@@ -39,15 +35,13 @@ class Mdl_user extends CI_Model {
         $this->db->select('*');
         if($role_id!= 1)
         {
-        $this->db->where('org_id',$org_id);
-        }
-        elseif (isset($submit_id) && !empty($submit_id) && $role_id=1) {
-            $this->db->where('org_id',$submit_id);
+            $this->db->where('org_id',$org_id);
         }
         $this->db->order_by($order_by);
         $query = $this->db->get($table);
         return $query;
     }
+
     function _insert($data) {
         $table = $this->get_table();
         $this->db->insert($table, $data);
@@ -59,7 +53,7 @@ class Mdl_user extends CI_Model {
         $table = $this->get_table();
         $user_data = $this->session->userdata('user_data');
         $role_id = $user_data['role_id'];
-        $this->db->where('id',$arr_col);
+        $this->db->where('user_id',$arr_col);
         if($role_id!=1){
             $this->db->where('org_id',$org_id);
         }
@@ -67,7 +61,7 @@ class Mdl_user extends CI_Model {
     }
        function _update_id($id, $data) {
         $table = $this->get_table();
-        $this->db->where('id',$id);
+        $this->db->where('user_id',$id);
         $this->db->update($table, $data);
     }
 
@@ -75,55 +69,11 @@ class Mdl_user extends CI_Model {
         $table = $this->get_table();
         $user_data = $this->session->userdata('user_data');
         $role_id = $user_data['role_id'];
-        $this->db->where('id', $arr_col);
+        $this->db->where('user_id', $arr_col);
         if($role_id!=1){
             $this->db->where('org_id',$org_id);
         }
         $this->db->delete($table);
-    }
-    function _set_publish($where) {
-        $table = $this->get_table();
-        $set_publish['status'] = 1;
-        $this->db->where($where);
-        $this->db->update($table, $set_publish);
-    }
-
-    function _set_unpublish($where) {
-        $table = $this->get_table();
-        $set_un_publish['status'] = 0;
-        $this->db->where($where);
-        $this->db->update($table, $set_un_publish);
-    }
-    function _getItemById($id) {
-        $table = $this->get_table();
-        $this->db->where("( id = '" . $id . "'  )");
-        $query = $this->db->get($table);
-        return $query->row();
-    }
-    function _get_by_arr_id_teacher() {
-        $table = $this->get_table();
-        $user_data = $this->session->userdata('user_data');
-        $org_id = $user_data['user_id'];
-        $role_id = $user_data['role_id'];
-        $this->db->select('*');
-        $this->db->where('designation','Teacher');
-        if($role_id!=1){
-            $this->db->where('org_id',$org_id);
-        }
-        return $this->db->get($table);
-    }
-
-    function _get_by_arr_id_parent() {
-        $table = $this->get_table();
-        $user_data = $this->session->userdata('user_data');
-        $org_id = $user_data['user_id'];
-        $role_id = $user_data['role_id'];
-        $this->db->select('*');
-        $this->db->where('designation','Parent');
-        if($role_id!=1){
-            $this->db->where('org_id',$org_id);
-        }
-        return $this->db->get($table);
     }
 
     function _get_where_validate($phone){   
@@ -133,23 +83,4 @@ class Mdl_user extends CI_Model {
         return $query;
     }
 
-    function _get_session($id,$username,$org_id){
-        $table = 'users_sessions';
-        $this->db->select('login_status');
-        $this->db->where('user_id',$id);
-        $this->db->where('username',$username);
-        $this->db->where('org_id',$org_id);
-        return $this->db->get($table);
-    }
-
-    function _logout_user($user_id,$org_id,$username,$login_status){
-        $table = 'users_sessions';
-        $this->db->where('user_id', $user_id);
-        $this->db->where('org_id', $org_id);
-        $this->db->where('username', $username);
-        $this->db->set('login_status' , $login_status);
-        $this->db->update($table);
-        $affected_rows = $this->db->affected_rows();
-        return $affected_rows;
-    }
 }

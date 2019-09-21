@@ -31,7 +31,7 @@
                         if (empty($update_id)) {
                             $update_id = 0;
                         } else {
-                            $hidden = array('hdnId' => $update_id, 'hdnActive' => $news['status']); ////edit case
+
                         }
                         if (isset($hidden) && !empty($hidden))
                             echo form_open_multipart(ADMIN_BASE_URL . 'user/submit/' . $update_id, $attributes, $hidden);
@@ -45,19 +45,19 @@
                         <div class="form-group">
                           <?php
                                                         $data = array(
-                                                        'name' => 'name',
-                                                        'id' => 'name',
+                                                        'name' => 'user_name',
+                                                        'id' => 'user_name',
                                                         'class' => 'form-control',
                                                         'type' => 'text',
                                                         'required' => 'required',
                                                         'tabindex' => '1',
-                                                        'value' => $news['name'],
+                                                        'value' => $news['user_name'],
                                                         'data-parsley-maxlength'=>TEXT_BOX_RANGE
                                                         );
                                                         $attribute = array('class' => 'control-label col-md-4');
                                                         ?>
                                                         
-                          <?php echo form_label('Name<span style="color:red">*</span>', 'name', $attribute); ?>
+                          <?php echo form_label('Name<span style="color:red">*</span>', 'user_name', $attribute); ?>
                           <div class="col-md-8"> <?php echo form_input($data); ?></div>
                         </div>
                       </div>
@@ -78,8 +78,8 @@
                           <div class="col-md-8"> 
                             <select name="designation" required="required" class="form-control">
                               <option value="">Select</option>
-                              <option value="Teacher" <?php if($news['designation']=='Teacher') echo "selected"; ?>>Teacher</option>
-                              <option value="Parent" <?php if($news['designation']=='Parent') echo "selected"; ?>>Parent</option>
+                              <option value="Cashier" <?php if($news['designation']=='Cashier') echo "selected"; ?>>Cashier</option>
+                              <option value="Salesman" <?php if($news['designation']=='Salesman') echo "selected"; ?>>Salesman</option>
                             </select>
                       </div>
                         </div>
@@ -108,21 +108,23 @@
                         <div class="form-group">
                           <?php
                                                         $data = array(
-                                                        'name' => 'email',
-                                                        'id' => 'email',
+                                                        'name' => 'cnic',
+                                                        'id' => 'cnic',
                                                         'class' => 'form-control',
-                                                        'type' => 'email',
-                                                        'tabindex' => '4',
+                                                        'pattern' => '[0-9]{13}',
+                                                        'title' => 'Enter 13 Digit CNIC',
+                                                        'tabindex' => '6',
                                                         'required' => 'required',
                                                         'data-parsley-maxlength'=>TEXT_BOX_RANGE,
-                                                       'value' => $news['email'],
+                                                       'value' => $news['cnic'],
                                                         );
                                                         $attribute = array('class' => 'control-label col-md-4');
                                                         ?>
-                          <?php echo form_label('Email<span style="color:red">*</span>', 'email', $attribute); ?>
+                          <?php echo form_label('CNIC<span style="color:red">*</span>', 'cnic', $attribute); ?>
                           <div class="col-md-8"> <?php echo form_input($data); ?> </div>
                         </div>
                       </div>
+                      
                     </div>
 
                     <div class="row">
@@ -144,75 +146,8 @@
                           <div class="col-md-8"> <?php echo form_input($data); ?> </div>
                         </div>
                       </div>
-                      <div class="col-sm-5">
-                        <div class="form-group">
-                          <?php
-                                                        $data = array(
-                                                        'name' => 'cnic',
-                                                        'id' => 'cnic',
-                                                        'class' => 'form-control',
-                                                        'pattern' => '[0-9]{13}',
-                                                        'title' => 'Enter 13 Digit CNIC',
-                                                        'tabindex' => '6',
-                                                        'required' => 'required',
-                                                        'data-parsley-maxlength'=>TEXT_BOX_RANGE,
-                                                       'value' => $news['cnic'],
-                                                        );
-                                                        $attribute = array('class' => 'control-label col-md-4');
-                                                        ?>
-                          <?php echo form_label('CNIC<span style="color:red">*</span>', 'cnic', $attribute); ?>
-                          <div class="col-md-8"> <?php echo form_input($data); ?> </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div class="row">
-                    <div class="col-sm-5">
-                        <div class="form-group">
-                          <?php
-                                                        $data = array(
-                                                        'name' => 'about',
-                                                        'id' => 'about',
-                                                        'class' => 'form-control',
-                                                        'type' => 'text',
-                                                        'tabindex' => '7',
-                                                        'value' => $news['about'],
-                                                        'data-parsley-maxlength'=>TEXT_BOX_RANGE
-                                                        );
-                                                        $attribute = array('class' => 'control-label col-md-4');
-                                                        ?>
-                          <?php echo form_label('About ', 'about', $attribute); ?>
-                          <div class="col-md-8"> <?php echo form_input($data); ?> </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-5">
-                        <div class="form-group">
-                          <?php
-                                                        $data = array(
-                                                        'name' => 'gender',
-                                                        'id' => 'gender',
-                                                        'class' => 'form-control',
-                                                        'type' => 'text',
-                                                        'tabindex' => '8',
-                                                        'value' => $news['gender'],
-                                                        );
-                                                        $attribute = array('class' => 'control-label col-md-4');
-                                                        ?>
-                          <?php echo form_label('Gender<span style="color:red">*</span>', 'gender', $attribute); ?>
-                          <div class="col-md-8"> 
-                            <select name="gender" required="required" class="form-control">
-                              <option value="">Select</option>
-                              <option value="Male" <?php if($news['gender']=='Male') echo "selected"; ?>>Male</option>
-                              <option value="Female" <?php if($news['gender']=='Female') echo "selected"; ?>>Female</option>
-                              <option value="Other" <?php if($news['gender']=='Other') echo "selected"; ?>>Other</option>
-                            </select>
-                      </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div class="row">
-                       <div class="col-sm-5" id="pass">
+                      
+                      <div class="col-sm-5" id="pass">
                         <div class="form-group">
                           <?php
                                                       $data = array(
@@ -232,7 +167,9 @@
                           <div class="col-md-8"> <?php echo form_input($data); ?> </div>
                         </div>
                       </div>
-                      </div>
+
+                    </div>
+                    
                 </div>
                 </div>
 

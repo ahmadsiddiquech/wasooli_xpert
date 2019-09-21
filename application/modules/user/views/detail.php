@@ -2,26 +2,18 @@
 
 <div class="row">
     <div class="col-md-6">
-        <h4 ><b>ID:&nbsp;&nbsp;</b></h4><?php echo $user['id']; ?>
+        <h4 ><b>ID:&nbsp;&nbsp;</b></h4><?php echo $user['user_id']; ?>
     </div>
     <div class="col-md-6">
-        <h4 ><b>Name:&nbsp;&nbsp;</b></h4><?php echo $user['name']; ?>
+        <h4 ><b>Name:&nbsp;&nbsp;</b></h4><?php echo $user['user_name']; ?>
     </div>
 </div>
 <div class="row">
     <div class="col-md-6">
-        <h4 ><b>Email:&nbsp;&nbsp;</b></h4><?php echo $user['email']; ?>
+         <h4 ><b>Designation:&nbsp;&nbsp;</b></h4><?php echo $user['designation']; ?>
     </div>
     <div class="col-md-6">
         <h4 ><b>Phone:&nbsp;&nbsp;</b></h4><?php echo $user['phone']; ?>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-6">
-        <h4 ><b>Gender:&nbsp;&nbsp;</b></h4><?php echo $user['gender']; ?>
-    </div>
-    <div class="col-md-6">
-        <h4 ><b>Designation:&nbsp;&nbsp;</b></h4><?php echo $user['designation']; ?>
     </div>
 </div>
 <div class="row">
@@ -30,13 +22,5 @@
     </div>
     <div class="col-md-6">
         <h4 ><b>CNIC:&nbsp;&nbsp;</b></h4><?php echo $user['cnic']; ?>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-6">
-        <h4 ><b>About:&nbsp;&nbsp;</b></h4><?php echo $user['about']; ?>
-    </div>
-    <div class="col-md-6">
-        <h4 ><b>Status:&nbsp;&nbsp;</b></h4><?php echo $user['status']; ?>
     </div>
 </div>

@@ -72,7 +72,7 @@ img {
 
                     <div class="col-md-8" style="padding-top: 10px;">
 
-                        <h2 class="card-text"><?php echo $organization; ?></h2>
+                        <!-- <h2 class="card-text"><?php echo $organization; ?></h2> -->
 
                     </div>
 
@@ -94,7 +94,7 @@ img {
 
                     <img src="<?php echo BASE_URL.'plugin/img/teacher.png'?>">
 
-                    <h2 class="card-text"><center>Total Teachers:<br><?php echo $teacher; ?></center></h2>
+                    <!-- <h2 class="card-text"><center>Total Teachers:<br><?php echo $teacher; ?></center></h2> -->
 
                 </div>
 
@@ -110,7 +110,7 @@ img {
 
                     <img src="<?php echo BASE_URL.'plugin/img/parent.png'?>">
 
-                    <h2 class="card-text"><center>Total Parents:<br><?php echo $parent; ?></center></h2>
+                    <!-- <h2 class="card-text"><center>Total Parents:<br><?php echo $parent; ?></center></h2> -->
 
                 </div>
 
@@ -126,7 +126,7 @@ img {
 
                     <img src="<?php echo BASE_URL.'plugin/img/stdnew.png'?>">
 
-                    <h2 class="card-text"><center>Total Students:<br><?php echo $student; ?></center></h2>
+                    <!-- <h2 class="card-text"><center>Total Students:<br><?php echo $student; ?></center></h2> -->
 
                 </div>
 
@@ -144,7 +144,7 @@ img {
 
                 <div class="card-body">
 
-                    <?php if(isset($announcement) && !empty($announcement)){
+                   <!--  <?php if(isset($announcement) && !empty($announcement)){
 
                         ?>
 
@@ -155,7 +155,7 @@ img {
                     <h5 class="card-text"><marquee><?php echo $announcement[0]['description']; ?><br><br></marquee></h5>
 
                 <?php }?>
-
+ -->
                 </div>
 
         </div>
