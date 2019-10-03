@@ -806,15 +806,15 @@ iframe {
 
 
 
-  background: #9152f8;
+  background: #00b5ec;
 
-  background: -webkit-linear-gradient(bottom, #7579ff, #b224ef);
+  background: -webkit-linear-gradient(top,#dcdcdc, #455a64);
 
-  background: -o-linear-gradient(bottom, #7579ff, #b224ef);
+  background: -o-linear-gradient(top,#dcdcdc, #455a64);
 
-  background: -moz-linear-gradient(bottom, #7579ff, #b224ef);
+  background: -moz-linear-gradient(top,#dcdcdc, #455a64);
 
-  background: linear-gradient(bottom, #7579ff, #b224ef);
+  background: linear-gradient(top,#dcdcdc, #455a64);
 
   position: relative;
 

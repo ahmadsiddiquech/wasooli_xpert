@@ -48,19 +48,19 @@ if($_SERVER['HTTP_HOST'] == 'ds-pc' || $_SERVER['HTTP_HOST'] == 'localhost' || $
 }
 else{
 	// ************** FOR LIVE SERVER
-	define('BASE_URL', 'http://'.$_SERVER['HTTP_HOST'].'//wasooli_xpert/');
-	define('HTTPS_BASE_URL', 'https://'.$_SERVER['HTTP_HOST'].'//wasooli_xpert/');
-	define('BASE_URL_NEWS_LISTING', 'http://'.$_SERVER['HTTP_HOST'].'//wasooli_xpert/front/');
-	define('FOOTER_BASE_URL', 'http://'.$_SERVER['HTTP_HOST'].'//wasooli_xpert/template/');
-	define('CAPTCHA_BASE_URL', 'http://'.$_SERVER['HTTP_HOST'].'//wasooli_xpert/captcha/');
-	define('IMAGE_BASE_URL', 'http://'.$_SERVER['HTTP_HOST'].'//wasooli_xpert/uploads/');
-	define('ADMIN_BASE_URL', 'http://'.$_SERVER['HTTP_HOST'].'//wasooli_xpert/admin/');
-	define('STATIC_ADMIN_CSS', 'http://'.$_SERVER['HTTP_HOST'].'//wasooli_xpert/static/admin/theme1/css/');
-	define('STATIC_ADMIN_JS', 'http://'.$_SERVER['HTTP_HOST'].'//wasooli_xpert/static/admin/theme1/js/');
-	define('STATIC_ADMIN_IMAGE', 'http://'.$_SERVER['HTTP_HOST'].'//wasooli_xpert/static/admin/theme1/images/');
-	define('STATIC_FRONT_CSS', 'http://'.$_SERVER['HTTP_HOST'].'//wasooli_xpert/static/front/wasooli_xpert/css/');
-	define('STATIC_FRONT_JS', 'http://'.$_SERVER['HTTP_HOST'].'//wasooli_xpert/static/front/wasooli_xpert/js/');
-	define('STATIC_FRONT_IMAGE', 'http://'.$_SERVER['HTTP_HOST'].'//wasooli_xpert/static/front/wasooli_xpert/images/');
+	define('BASE_URL', 'http://'.$_SERVER['HTTP_HOST'].'/wasooli_xpert/');
+	define('HTTPS_BASE_URL', 'https://'.$_SERVER['HTTP_HOST'].'/wasooli_xpert/');
+	define('BASE_URL_NEWS_LISTING', 'http://'.$_SERVER['HTTP_HOST'].'/wasooli_xpert/front/');
+	define('FOOTER_BASE_URL', 'http://'.$_SERVER['HTTP_HOST'].'/wasooli_xpert/template/');
+	define('CAPTCHA_BASE_URL', 'http://'.$_SERVER['HTTP_HOST'].'/wasooli_xpert/captcha/');
+	define('IMAGE_BASE_URL', 'http://'.$_SERVER['HTTP_HOST'].'/wasooli_xpert/uploads/');
+	define('ADMIN_BASE_URL', 'http://'.$_SERVER['HTTP_HOST'].'/wasooli_xpert/admin/');
+	define('STATIC_ADMIN_CSS', 'http://'.$_SERVER['HTTP_HOST'].'/wasooli_xpert/static/admin/theme1/css/');
+	define('STATIC_ADMIN_JS', 'http://'.$_SERVER['HTTP_HOST'].'/wasooli_xpert/static/admin/theme1/js/');
+	define('STATIC_ADMIN_IMAGE', 'http://'.$_SERVER['HTTP_HOST'].'/wasooli_xpert/static/admin/theme1/images/');
+	define('STATIC_FRONT_CSS', 'http://'.$_SERVER['HTTP_HOST'].'/wasooli_xpert/static/front/wasooli_xpert/css/');
+	define('STATIC_FRONT_JS', 'http://'.$_SERVER['HTTP_HOST'].'/wasooli_xpert/static/front/wasooli_xpert/js/');
+	define('STATIC_FRONT_IMAGE', 'http://'.$_SERVER['HTTP_HOST'].'/wasooli_xpert/static/front/wasooli_xpert/images/');
 	define('STATIC_FRONT_NOTIFICATION', './wasooli_xpert/static/front/wasooli_xpert/notification/');
 
 	// define('BASE_URL', 'http://'.$_SERVER['HTTP_HOST'].'/');
@@ -73,9 +73,9 @@ else{
 	// define('STATIC_ADMIN_CSS', 'http://'.$_SERVER['HTTP_HOST'].'/static/admin/theme1/css/');
 	// define('STATIC_ADMIN_JS', 'http://'.$_SERVER['HTTP_HOST'].'/static/admin/theme1/js/');
 	// define('STATIC_ADMIN_IMAGE', 'http://'.$_SERVER['HTTP_HOST'].'/static/admin/theme1/images/');
-	// define('STATIC_FRONT_CSS', 'http://'.$_SERVER['HTTP_HOST'].'/static/front/xpert_atendy/css/');
-	// define('STATIC_FRONT_JS', 'http://'.$_SERVER['HTTP_HOST'].'/static/front/xpert_atendy/js/');
-	// define('STATIC_FRONT_IMAGE', 'http://'.$_SERVER['HTTP_HOST'].'/static/front/xpert_atendy/images/');
+	// define('STATIC_FRONT_CSS', 'http://'.$_SERVER['HTTP_HOST'].'/static/front/wasooli_xpert/css/');
+	// define('STATIC_FRONT_JS', 'http://'.$_SERVER['HTTP_HOST'].'/static/front/wasooli_xpert/js/');
+	// define('STATIC_FRONT_IMAGE', 'http://'.$_SERVER['HTTP_HOST'].'/static/front/wasooli_xpert/images/');
 }
 
 
